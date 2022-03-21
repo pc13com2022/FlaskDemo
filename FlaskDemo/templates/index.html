@@ -7,19 +7,26 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>House</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for row in result %}
         <tr>
-            <td>{{ row.id }}</td>
             <td>{{ row.first_name }}</td>
             <td>{{ row.last_name }}</td>
             <td class="{{ row.house|lower }}">{{ row.house }}</td>
+            <td>
+                <a
+                   href="{{ url_for('delete') }}?id={{ row.id }}"
+                   onclick="return confirm('Are you sure you wish to delete {{ row.first_name }}?')"
+                >
+                    Delete
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

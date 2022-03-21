@@ -39,6 +39,16 @@ def add_person():
     else:
         return render_template('add.html')
 
+@app.route('/delete')
+def delete():
+    with create_connection() as connection:
+        with connection.cursor() as cursor:
+            sql = """DELETE FROM people WHERE id = %s"""
+            values = (request.args['id'])
+            cursor.execute(sql, values)
+            connection.commit()
+    return redirect('/')
+
 if __name__ == '__main__':
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
