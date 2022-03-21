@@ -1,0 +1,26 @@
+{% extends '_layout.html' %}
+
+{% block title %}Add person{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="fn">First Name:</label>
+    <input id="fn" name="first_name">
+    <br>
+    <label for="ln">Last Name:</label>
+    <input id="ln" name="last_name">
+    <br>
+    <label for="house">House:</label>
+    <select id="house" name="house">
+        <option hidden selected disabled>Please select ...</option>
+        <option>Kauri</option>
+        <option>Pohutukawa</option>
+        <option>Totara</option>
+        <option>Rimu</option>
+        <option>Nikau</option>
+        <option>Matai</option>
+    </select>
+    <br>
+    <input type="submit" value="Add a new person">
+</form>
+{% endblock %}

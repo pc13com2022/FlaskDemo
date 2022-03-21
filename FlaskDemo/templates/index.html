@@ -1,0 +1,28 @@
+{% extends '_layout.html' %}
+{# This page will return '_layout.html' but with the {% block %}s replaced #}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>House</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in result %}
+        <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.first_name }}</td>
+            <td>{{ row.last_name }}</td>
+            <td class="{{ row.house|lower }}">{{ row.house }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('add_person') }}">Add a new person</a>
+{% endblock %}

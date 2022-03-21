@@ -1,0 +1,22 @@
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+}
+tr {
+    background-color: #ddd;
+}
+tr:nth-child(2n) {
+    background-color: #eee;
+}
+td.kauri { background-color: red; }
+td.pohutukawa { background-color: orange; }
+td.totara { background-color: yellow; }
+td.rimu { background-color: green; }
+td.nikau { background-color: blue; }
+td.matai { background-color: purple; }
+
+input, select {
+    margin-bottom: 10px;
+}
