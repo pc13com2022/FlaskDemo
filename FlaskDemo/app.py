@@ -25,8 +25,14 @@ def add_person():
     if request.method == 'POST':
         with create_connection() as connection:
             with connection.cursor() as cursor:
-                sql = "INSERT INTO people (first_name, last_name, house) VALUES (%s, %s, %s)"
-                values = (request.form['first_name'], request.form['last_name'], request.form['house'])
+                sql = """INSERT INTO people
+                    (first_name, last_name, house)
+                    VALUES (%s, %s, %s)"""
+                values = (
+                    request.form['first_name'],
+                    request.form['last_name'],
+                    request.form['house']
+                )
                 cursor.execute(sql, values)
                 connection.commit()
         return redirect(url_for('home'))
