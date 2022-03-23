@@ -32,6 +32,7 @@
     <Content Include="requirements.txt" />
     <Content Include="static\custom.css" />
     <Content Include="templates\add.html" />
+    <Content Include="templates\edit.html" />
     <Content Include="templates\index.html" />
     <Content Include="templates\_layout.html" />
   </ItemGroup>

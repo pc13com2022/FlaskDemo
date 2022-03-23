@@ -1,0 +1,27 @@
+{% extends '_layout.html' %}
+
+{% block title %}Add person{% endblock %}
+
+{% block content %}
+<form method="post">
+    <input type="hidden" name="id" value="{{ result.id }}">
+    <label for="fn">First Name:</label>
+    <input id="fn" name="first_name" value="{{ result.first_name }}">
+    <br>
+    <label for="ln">Last Name:</label>
+    <input id="ln" name="last_name" value="{{ result.last_name }}">
+    <br>
+    <label for="house">House:</label>
+    <select id="house" name="house">
+        <option hidden disabled {{ 'selected' if not result.house }}>Please select ...</option>
+        <option {{ 'selected' if result.house == "Kauri" }}>Kauri</option>
+        <option {{ 'selected' if result.house == "Pohutukawa" }}>Pohutukawa</option>
+        <option {{ 'selected' if result.house == "Totara" }}>Totara</option>
+        <option {{ 'selected' if result.house == "Rimu" }}>Rimu</option>
+        <option {{ 'selected' if result.house == "Nikau" }}>Nikau</option>
+        <option {{ 'selected' if result.house == "Matai" }}>Matai</option>
+    </select>
+    <br>
+    <input type="submit" value="Update person">
+</form>
+{% endblock %}

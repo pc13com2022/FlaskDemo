@@ -29,15 +29,43 @@ def add_person():
                     (first_name, last_name, house)
                     VALUES (%s, %s, %s)"""
                 values = (
-                    request.form['first_name'],
-                    request.form['last_name'],
-                    request.form['house']
+                    request.form.get('first_name'),
+                    request.form.get('last_name'),
+                    request.form.get('house')
                 )
                 cursor.execute(sql, values)
                 connection.commit()
         return redirect(url_for('home'))
     else:
         return render_template('add.html')
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+    if request.method == 'POST':
+        with create_connection() as connection:
+            with connection.cursor() as cursor:
+                sql = """UPDATE people SET
+                    first_name = %s,
+                    last_name = %s,
+                    house = %s
+                    WHERE id = %s"""
+                values = (
+                    request.form['first_name'],
+                    request.form['last_name'],
+                    request.form['house'],
+                    request.form['id']
+                )
+                cursor.execute(sql, values)
+                connection.commit()
+        return redirect(url_for('home'))
+    else:
+        with create_connection() as connection:
+            with connection.cursor() as cursor:
+                sql = "SELECT * FROM people WHERE id = %s"
+                values = (request.args['id'])
+                cursor.execute(sql, values)
+                result = cursor.fetchone()
+        return render_template('edit.html', result=result)
 
 @app.route('/delete')
 def delete():

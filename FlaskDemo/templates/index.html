@@ -10,7 +10,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>House</th>
-            <th>Actions</th>
+            <th colspan="2">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,10 +21,15 @@
             <td class="{{ row.house|lower }}">{{ row.house }}</td>
             <td>
                 <a
-                   href="{{ url_for('delete') }}?id={{ row.id }}"
+                   href="/delete?id={{ row.id }}"
                    onclick="return confirm('Are you sure you wish to delete {{ row.first_name }}?')"
                 >
                     Delete
+                </a>
+            </td>
+            <td>
+                <a href="/edit?id={{ row.id }}">
+                    Edit
                 </a>
             </td>
         </tr>
