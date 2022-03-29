@@ -5,7 +5,7 @@
 - Open MySQL Workbench and copy & paste the `setup.sql` file while connected to your database to create the `people` and `zodiac` tables
 
 - Select "Clone a repository" in Visual Studio
-- Paste "https://github.com/pc13com20222/FlaskDemo.git" into the "Repository location" field
+- Paste "https://github.com/pc13com2022/FlaskDemo.git" into the "Repository location" field
 - Select a "Path" where you want to save the project on your computer, and click "Clone"
 - Double-click `FlaskDemo.sln` in the side panel to open the Visual Studio solution
 - Navigate to your Python environment in Visual Studio, right click and select "Install from requirements.txt"
